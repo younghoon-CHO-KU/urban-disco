@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+		<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <title>결과물</title>
+			
+    </head>
+    <body>
+        <h1>내용</h1>
+		  <py-script>
+path = '/home/save/docker_practice'
+from PIL import Image
+import os
+for img in sorted(os.listdir(path)):
+	if img[-3:] == 'jpg':
+	Image.show(path + '/' + img)
+	f = open(path + '/' + img[:-3] + 'txt')
+	print(f.readlines())
+	f.close()	
+			</py-script>
+    </body>
+</html>

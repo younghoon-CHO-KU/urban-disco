@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <title>
+        SWIS
+    </title>
+    <style>
+    </style>
+</head>
+<div class="container">
+<body>
+            <img class='logoclass' src="static/logo/logo.png">	
+    <br>
+	
+    <form method="GET" action="/redirect">
+        <div>
+            <label for="char1"></label>
+            <input type="text" name="story_prompt" placeholder='원하는 문장을 입력하세요' style='display:inline-block;margin-bottom:5px; margin-left:150px;margin-top:0px;'>
+				<input type="number" value="6" min="4" max="8" name="num_scenes" placeholder='원하는 장면의 수를 입력하세요'style='display:inline-block;width:25%;margin-left:450px;margin-top:40px;'>
+			  <input type="image" src = 'static/logo/search.png' type='submit' style='display:inline-block;max-width:55px;margin-bottom:-30px;'>
+			  <br>
+			  <br>
+
+        </div>
+    </form>
+	
+	<form method='POST' action="/redirect"style='display:inline-block;text-align:center;'>
+	
+			<button class="buttonclass" type="submit" style="margin-top:30px">확인하기</button>
+	</form>
+    {% if chk == None %}
+        <h2 style='font-size:1.5em;'> 아직 이미지가 생성되지 않았습니다 </h2>
+    {% else %}
+        <h2> 설명 보기 </h2>
+        <h3 style="margin:auto;"> {{title}} </h3>
+			<input class="check-btn" type="checkbox" id="a">
+			<pre> </pre>
+        {% for i in range(num_prompt) %}
+				<br>
+            <img class="imgclass" src="{{ url_for('static', filename='image/image{}.png'.format(i)) }}">
+            <br>
+			
+
+				<ul class="menubars">
+                            <h4 style="font-size:1.5em"> {{subtitles[i]}} </h4>
+							<h4> {{prompts[i]}} </h4>
+				</ul>
+			<h2> ----------------------------------------------------------------------- </h2>
+				<br>
+        {% endfor %}            
+        <h2> 질문 </h2>
+        {% for i in range(num_question) %}
+				<br>
+            <h5> {{questions[i]}} </h5>
+				<br>
+        {% endfor %}
+        <h2> ----------------------------------------------------------------------- </h2>
+    {% endif %}       
+    </p>
+</body>
+</div>
+</html>
