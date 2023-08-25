@@ -1,4 +1,4 @@
-# urban-disco
+# SWIS
 
 ## app.py 마지막 라인에서 포트랑 ip를 설정하셔야 합니다.
 
