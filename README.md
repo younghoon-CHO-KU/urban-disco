@@ -2,7 +2,7 @@
 
 ## app.py 마지막 라인에서 포트랑 ip를 설정하셔야 합니다.
 
-pip install flask로 설치했습니다.
+flask:2.3.3
 
 서버 컴퓨터에서 받은 이미지, 텍스트는 static/image, static/prompt, static/question, static/subtitle에 저장되고, 새로운 응답이 오면 지워지고, 새로 받은 파일들이 남습니다.
 
